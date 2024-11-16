@@ -10,8 +10,8 @@ const videoRouter=express.Router();
 
 //Middleware
 //body parsing
-videoRouter.use(express.json()) // for parsing application/json
-videoRouter.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+videoRouter.use(express.json()) 
+videoRouter.use(express.urlencoded({ extended: true }))
 //Use static file
 videoRouter.use(express.static('./public'))
 
@@ -31,14 +31,11 @@ videoRouter.get('/videos', (req,res) => {
 // GET /videos/:id endpoint
 videoRouter.get('/videos/:id', (req,res) => {
     const requestedVideo = videoData.find((video) => video.id === req.params.id);
-    // console.log(requestedVideo);
     res.json(requestedVideo);
 });
 
 // POST /videos endpoint
 videoRouter.post('/videos', (req,res) => {
-    // console.log(req.body);
-
     const {
         title,
         description
